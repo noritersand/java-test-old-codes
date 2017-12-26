@@ -1,4 +1,4 @@
-package laboratory.thirdparty.time;
+package laboratory.thirdparty.joda;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
