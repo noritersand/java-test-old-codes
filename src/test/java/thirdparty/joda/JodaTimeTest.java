@@ -23,7 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
+ * joda time test case
  * 
  * @since 2017-07-27
  * @author fixalot
