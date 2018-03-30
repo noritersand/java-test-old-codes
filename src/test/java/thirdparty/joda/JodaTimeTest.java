@@ -31,6 +31,17 @@ import org.slf4j.LoggerFactory;
 public class JodaTimeTest {
 	private static final Logger logger = LoggerFactory.getLogger(JodaTimeTest.class);
 
+	/**
+	 * ISO 날짜 표기(Zulu 타임존, UTC, 그리니치 표준시각)법으로 DateTime 생성
+	 * 
+	 * @author fixalot
+	 */
+	@Test
+	public void toDateTimeWithISODateTimeString() {
+		DateTime dateTime = new DateTime("2017-04-18T01:24:48.842Z");
+		Assert.assertEquals("2017-04-18T10:24:48.842+09:00", dateTime.toString());
+	}
+	
 	@Test
 	public void getLocalDate() {
 		LocalDate a = new LocalDate();
