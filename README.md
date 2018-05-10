@@ -6,5 +6,4 @@ JDK 버전이 올라가면서 더 이상 사용할 수 없는 구문이나(e.g. 
 
 ### environments
 - maven
-- jdk 1.8
-- eclipse
+- jdk1.8
