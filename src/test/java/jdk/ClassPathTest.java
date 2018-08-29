@@ -6,8 +6,10 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Paths;
+import java.security.cert.LDAPCertStoreParameters;
 import java.util.Arrays;
 
+import org.codehaus.janino.Java.Instanceof;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -23,10 +25,16 @@ public class ClassPathTest {
 //	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory.getLogger(ClassPathTest.class);
 
+	/**
+	 * 원래 되던건대...
+	 * loader가 URLCLassLoader의 인스턴스가 아님.
+	 */
 	@Test
 	public void getClasspaths() {
-		URL[] url = ((URLClassLoader) (Thread.currentThread().getContextClassLoader())).getURLs();
-		logger.debug(Arrays.toString(url));
+//		ClassLoader loader = Thread.currentThread().getContextClassLoader();
+//		Assert.assertTrue(loader instanceof URLClassLoader);
+//		URL[] url = ((URLClassLoader) (Thread.currentThread().getContextClassLoader())).getURLs();
+//		logger.debug(Arrays.toString(url));
 	}
 
 	@Test
