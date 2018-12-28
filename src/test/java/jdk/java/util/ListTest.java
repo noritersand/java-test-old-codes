@@ -34,9 +34,9 @@ public class ListTest {
 		list = move1(list, 3, 1);
 		Assert.assertEquals("[a, d, b, c, f]", String.valueOf(list));
 		
-//		list = getAList();
-//		list = move2(list, 3, 1);
-//		Assert.assertEquals("[a, d, b, c, f]", String.valueOf(list));
+		list = getAList();
+		list = move2(list, 3, 1);
+		Assert.assertEquals("[a, d, b, c, f]", String.valueOf(list));
 	}
 	
 	private ArrayList<String> getAList() {
@@ -48,21 +48,32 @@ public class ListTest {
 		logger.debug(String.valueOf(list));
 		// 일단 찾고
 		int index = list.indexOf("d");
-		Assert.assertEquals(3, index);
+		Assert.assertEquals(target, index);
 		
-		String element = list.get(3);
-		list.remove(3);
+		String element = list.get(target);
+		list.remove(target);
 		logger.debug(String.valueOf(list));
-		list.add(1, element);
+		list.add(dest, element);
 		
 		return list;
 	}
 	
+	/**
+	 * indexOf 생략하는 방식
+	 * 
+	 * @param list
+	 * @param target
+	 * @param dest
+	 * @return
+	 * @author fixalot
+	 */
 	private ArrayList<String> move2(ArrayList<String> list, int target, int dest) {
 		logger.debug(String.valueOf(list));
-		
-//		Collections.
-		// TODO
+
+		String element = list.get(target);
+		list.remove(element);
+		logger.debug(String.valueOf(list));
+		list.add(dest, element);
 		
 		return list;
 	}
