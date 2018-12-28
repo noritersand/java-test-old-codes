@@ -24,20 +24,46 @@ public class ListTest {
 	 * @author fixalot
 	 */
 	@Test
-	public void changeOrder1() {
-		ArrayList<String> list = new ArrayList<String>(Arrays.asList("a", "b", "c", "d", "f"));
+	public void moveElement1() {
+		ArrayList<String> list = getAList();
 		Assert.assertEquals("[a, b, c, d, f]", (String.valueOf(list)));
 		
 //		Collections.rotate(list, 2); // 이거 아님
 //		Assert.assertEquals("[d, f, a, b, c]", (String.valueOf(list)));
 		
+		list = move1(list, 3, 1);
+		Assert.assertEquals("[a, d, b, c, f]", String.valueOf(list));
+		
+//		list = getAList();
+//		list = move2(list, 3, 1);
+//		Assert.assertEquals("[a, d, b, c, f]", String.valueOf(list));
+	}
+	
+	private ArrayList<String> getAList() {
+		ArrayList<String> list = new ArrayList<String>(Arrays.asList("a", "b", "c", "d", "f"));
+		return list;
+	}
+	
+	private ArrayList<String> move1(ArrayList<String> list, int target, int dest) {
+		logger.debug(String.valueOf(list));
 		// 일단 찾고
 		int index = list.indexOf("d");
 		Assert.assertEquals(3, index);
 		
-		String target = list.get(3);
+		String element = list.get(3);
 		list.remove(3);
-		list.add(1, target);
-		Assert.assertEquals("[a, d, b, c, f]", String.valueOf(list));
+		logger.debug(String.valueOf(list));
+		list.add(1, element);
+		
+		return list;
+	}
+	
+	private ArrayList<String> move2(ArrayList<String> list, int target, int dest) {
+		logger.debug(String.valueOf(list));
+		
+//		Collections.
+		// TODO
+		
+		return list;
 	}
 }
