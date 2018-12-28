@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 클래스패스 테스트 유닛
+ * JDK8 클래스패스 테스트 유닛
  * 
  * @since 2017-07-27
  * @author fixalot
