@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
  * @author fixalot
  */
 public class ListTest {
-	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory.getLogger(ListTest.class);
 
 	/**
