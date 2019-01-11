@@ -23,7 +23,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * joda time test case
+ * joda time test 유닛<br>
+ * 사실 org.joda.time은 JDK8에서 java.time 패키지로 흡수되었고 더 이상 major 업데이트 계획이 없다. 그래서 이 프로젝트에 있기가 좀 애매함...
  * 
  * @since 2017-07-27
  * @author fixalot
