@@ -50,7 +50,7 @@ public class JodaTimeTest {
 		Assert.assertTrue(a.equals(b));
 		logger.debug(String.valueOf(a)); // yyyy-MM-dd
 	}
-
+	
 	@Test
 	public void getMonthDay() {
 		MonthDay a = new MonthDay();
@@ -88,6 +88,10 @@ public class JodaTimeTest {
 		logger.debug(dt.toString());
 		DateTime dt2 = new DateTime(2017, 4, 18, 16, 41, 34, 219);
 		Assert.assertEquals(dt, dt2);
+		
+		// 요 parse()는 문자열 "20200101"을 joda time으로 바꾸는걸 의미함. formatter가 지정되면 해당 포맷으로, 안되면 ISO 포맷으로 인식한다.
+		Assert.assertEquals(new LocalDate("2020-01-01"), LocalDate.parse("2020-01-01")); // ISO 포맷
+		Assert.assertEquals(new LocalDate("2020-01-01"), LocalDate.parse("20200101", DateTimeFormat.forPattern("yyyyMMdd")));
 	}
 
 	@Test
@@ -115,6 +119,10 @@ public class JodaTimeTest {
 
 		Assert.assertEquals("2020-02-29T23:59:59.010+09:00", newDt.toString());
 		Assert.assertEquals("2020-02-29 23:59:59:010", newDt.toString(formatter));
+		
+		// String으로 특정일 지정 + yyyyMMdd 포맷
+		DateTimeFormatter yyyyMMdd = DateTimeFormat.forPattern("yyyyMMdd");
+		Assert.assertEquals("20200101", LocalDate.parse("2020-01-01").toString(yyyyMMdd));
 	}
 
 	@Test
