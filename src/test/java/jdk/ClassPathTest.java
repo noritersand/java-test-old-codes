@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLClassLoader;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,22 +23,19 @@ public class ClassPathTest {
 //	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory.getLogger(ClassPathTest.class);
 
-	/**
-	 * 원래 되던건대...
-	 * loader가 URLCLassLoader의 인스턴스가 아님.
-	 */
 	@Test
 	public void getClasspaths() {
-//		ClassLoader loader = Thread.currentThread().getContextClassLoader();
-//		Assert.assertTrue(loader instanceof URLClassLoader);
-//		URL[] url = ((URLClassLoader) (Thread.currentThread().getContextClassLoader())).getURLs();
-//		logger.debug(Arrays.toString(url));
+		ClassLoader loader = Thread.currentThread().getContextClassLoader();
+		Assert.assertTrue(loader instanceof URLClassLoader);
+		URL[] url = ((URLClassLoader) (Thread.currentThread().getContextClassLoader())).getURLs();
+		logger.debug(Arrays.toString(url));
 	}
 
 	@Test
 	public void accessFileAtClasspath() throws URISyntaxException, IOException {
 		ClassLoader loader = ClassPathTest.class.getClassLoader();
 		URL url = loader.getResource("class-path-test/amiexist.txt");
+		Assert.assertNotNull(url);
 		File file = Paths.get(url.toURI()).toFile();
 		Assert.assertTrue(file.exists());
 	}
