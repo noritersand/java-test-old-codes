@@ -48,7 +48,7 @@ public class JodaTimeTest {
 		LocalDate a = new LocalDate();
 		LocalDate b = LocalDate.now();
 		Assert.assertTrue(a.equals(b));
-		logger.debug(String.valueOf(a)); // yyyy-MM-dd
+		logger.debug("{}", a); // yyyy-MM-dd
 	}
 	
 	@Test
@@ -56,7 +56,7 @@ public class JodaTimeTest {
 		MonthDay a = new MonthDay();
 		MonthDay b = MonthDay.now();
 		Assert.assertTrue(a.equals(b));
-		logger.debug(String.valueOf(a)); // --MM-dd
+		logger.debug("{}", a); // --MM-dd
 	}
 
 	@Test
@@ -64,7 +64,7 @@ public class JodaTimeTest {
 		YearMonth a = new YearMonth();
 		YearMonth b = YearMonth.now();
 		Assert.assertTrue(a.equals(b));
-		logger.debug(String.valueOf(a)); // yyyy-MM
+		logger.debug("{}", a); // yyyy-MM
 	}
 
 	@Test
@@ -343,8 +343,8 @@ public class JodaTimeTest {
 		b = new DateTime("2017-01-02T10:00:00", DateTimeZone.forID("Asia/Seoul")); // GMT/UTC보다 9시간 빠름
 
 		// isEqual은 밀리초(GMT/UTC 기준)가 같은지 비교한다.
-		logger.debug(String.valueOf(a.getMillis()));
-		logger.debug(String.valueOf(b.getMillis()));
+		logger.debug("{}", a.getMillis());
+		logger.debug("{}", b.getMillis());
 		Assert.assertTrue(a.isEqual(b)); // 영국의 01시는 한국의 10시와 같다.
 
 		// equals는 timezone(혹은 chronology)을 적용한 시각이 같은지를 비교한다.

@@ -43,6 +43,6 @@ public class ClassPathTest {
 	@Test
 	public void getResource() {
 		URL url = this.getClass().getResource("");
-		logger.debug(String.valueOf(url.toString())); // file:/C:/dev/git/laboratory/target/test-classes/laboratory/jdk/
+		logger.debug("{}", url.toString()); // file:/C:/dev/git/laboratory/target/test-classes/laboratory/jdk/
 	}
 }

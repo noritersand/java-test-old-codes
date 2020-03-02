@@ -44,14 +44,14 @@ public class ListTest {
 	}
 	
 	private ArrayList<String> move1(ArrayList<String> list, int target, int dest) {
-		logger.debug(String.valueOf(list));
+		logger.debug("{}", list);
 		// 일단 찾고
 		int index = list.indexOf("d");
 		Assert.assertEquals(target, index);
 		
 		String element = list.get(target);
 		list.remove(target);
-		logger.debug(String.valueOf(list));
+		logger.debug("{}", list);
 		list.add(dest, element);
 		
 		return list;
@@ -67,11 +67,11 @@ public class ListTest {
 	 * @author fixalot
 	 */
 	private ArrayList<String> move2(ArrayList<String> list, int target, int dest) {
-		logger.debug(String.valueOf(list));
+		logger.debug("{}", list);
 
 		String element = list.get(target);
 		list.remove(element);
-		logger.debug(String.valueOf(list));
+		logger.debug("{}", list);
 		list.add(dest, element);
 		
 		return list;
